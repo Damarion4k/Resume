@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Damarion's Auto</title>
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <style>
+
+        h1{
+        color: white;
+    padding-left: 70px;
+        animation-name: colorChange;
+        animation-duration: 5s;
+        animation-delay:0s;
+    animation-iteration-count: infinite;
+    }
+     a:link{
+        display: inline-flex;
+        color: blue;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        transform-origin: center;
+        align-items: center;
+        justify-content: center;
+    }
+    a:hover{
+        background: black;
+         text-decoration: underline;
+        text-decoration-color: red;
+        text-decoration-thickness: 5px;
+        box-shadow:
+            0 0 10px,
+            0 0 20px,
+            0 0 40px;
+        border-radius: 50%;
+        transform: scale(1.2);
+    }
+    a:active{
+        color:#B8860B;
+        background-color:#000000;
+    }
+    a{
+        color: white;
+        padding: 10px;
+        font-size: 20px;
+    }
+    nav{
+        text-align: right;
+    }
+    body{
+        margin: 0;
+        background-image:url("https://img.goodfon.com/wallpaper/nbig/0/85/chelovek-pauk-spider-man-4268.webp");
+        background-size: cover;
+        background-position: center 0.5px;
+        background-repeat: no-repeat;
+        color: white;
+    }
+    @keyframes colorChange{
+        0%{
+            color: red;
+        
+        }
+        20%{
+            color: blue;
+        
+        }
+        40%{
+            color: white;
+    
+        }
+        80%{
+            color: blue;
+        
+        }
+        100%{
+            color: red;
+        
+        }
+    }
+    img{
+        border-radius:50%;
+        width: 200px;
+        height: auto;
+    }
+    span:hover {
+        background-color: black;
+    }
+    p{
+        font-size: 18px;
+    }
+    .container{
+        display:flex;
+        align-items:center;
+        gap: 10px;
+    }
+    .name{
+        animation-name: colorChange;
+        animation-duration: 5s;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+    }
+    .wrappedText{
+        background-color: rgba(0,0,0,0.6);
+        color: white;
+        padding: 4px 10px;
+        line-height: 2;
+        border-radius: 20%;
+    }
+    .contactLinks{
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        display: flex;
+        gap: 20px;
+    }
+    .contactLinks a{
+        color: white;
+        font-size: 35px;
+        transition: 0.3s;
+    }
+    .contactLinks a:hover{
+        color: red;
+        transform: scale(1.2);
+    }
+    </style>
+
+    </head>
+    <body>
+        <nav>
+    <a href = "Autobiography.html" class = "active">Home</a>
+    <a href = "Contact.html">Contact</a>
+    <a href = "resume.html">Resume</a>
+    <a href = "AboutMe.html">About Me</a>
+        </nav>
+        <div>
+    <h1>Damarion</h1>
+    </div>
+<div class = "container">
+    <a href = "aboutMe.html" class = "basic">
+<img src = "MyPhoto.jpeg" alt = "photo of me">
+    </a>
+<div style = "text-align:center">
+<p class = "wrappedText"><b>Hi, my name is
+<a href = "resume.html" class = "basic"><em>Damarion Williams,</em></a>
+    and I am a motivated developer<br>that have many skills/programming languages.
+<br>Which include python and web development(html, css, javascript)<b>
+    </p>
+</div>
+    </div>
+<div class = "contactLinks">
+    <a href = "mailto:damarionw58@gmail.com" target = "_blank">
+        <i class = "fa-solid fa-envelope"></i>
+    </a>
+    <a href = "https:github.com/Damarion4k" target = "_blank">
+        <i class = "fa-brands fa-github"></i>
+    </a>
+    <a href = "https://linkedin.com/in/damarion-williams-b8681340a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target = "_blank">
+        <i class = "fa-brands fa-linkedin"></i>
+    </a>
+</div>
+    </body>
+</html>

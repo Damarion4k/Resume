@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Damarion Williams – About Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --fire-orange: #FF6A00;
+      --fire-yellow: #FFD200;
+      --ember-red:   #C0392B;
+      --bone-white:  #E8E0D0;
+      --dark-ash:    #111111;
+      --mid-ash:     #1C1C1C;
+      --light-ash:   #2A2A2A;
+      --chain-gray:  #3A3A3A;
+    }
+
+    html, body {
+      background-color: var(--dark-ash);
+      background-image: url('https://wallpapercg.com/media/ts_orig/23613.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--bone-white);
+      font-family: 'Barlow', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    nav, header, .content-wrapper, .sections-grid, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.75);
+      border-bottom: 2px solid var(--ember-red);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 2rem;
+      padding: 0 3rem;
+      height: 62px;
+    }
+
+    nav a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      color: var(--bone-white);
+      text-decoration: none;
+      padding: 4px 0;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 0; height: 2px;
+      background: var(--fire-orange);
+      transition: width 0.25s;
+    }
+
+    nav a:hover { color: var(--fire-orange); }
+    nav a:hover::after { width: 100%; }
+
+    nav a.active { color: var(--fire-yellow); }
+
+    /* ── FLAME HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 3.5rem 3rem 3rem;
+      background: linear-gradient(160deg, rgba(26,0,0,0.4) 0%, rgba(17,17,17,0.2) 60%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(192,57,43,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Animated flame border on left */
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--fire-yellow), var(--fire-orange), var(--ember-red), transparent);
+      animation: flicker 2.4s ease-in-out infinite alternate;
+    }
+
+    @keyframes flicker {
+      0%   { opacity: 1;   transform: scaleY(1);    }
+      40%  { opacity: 0.7; transform: scaleY(0.97); }
+      70%  { opacity: 0.9; transform: scaleY(1.02); }
+      100% { opacity: 0.6; transform: scaleY(0.95); }
+    }
+
+    .hero-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      color: var(--fire-orange);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      background: linear-gradient(100deg, var(--fire-yellow) 0%, var(--fire-orange) 55%, var(--ember-red) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      filter: drop-shadow(0 0 18px rgba(255,106,0,0.55));
+    }
+
+    /* Skull chain decoration */
+    .chain-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0;
+    }
+    .chain-divider .skull { font-size: 1.2rem; filter: drop-shadow(0 0 6px var(--fire-orange)); }
+    .chain-divider .line {
+      height: 2px;
+      width: 120px;
+      background: linear-gradient(90deg, var(--fire-orange), transparent);
+    }
+
+    /* ── CONTENT WRAPPER ── */
+    .content-wrapper {
+      max-width: 680px;      /* keeps text away from the center */
+      padding: 2.8rem 3rem;
+    }
+
+    /* ── ABOUT TEXT ── */
+    .about-text {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: #c8c0b0;
+      border-left: 3px solid var(--ember-red);
+      padding-left: 1.2rem;
+    }
+
+    .about-text a {
+      color: var(--fire-orange);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .about-text a:hover {
+      color: var(--fire-yellow);
+      border-bottom-color: var(--fire-yellow);
+    }
+
+    /* ── HORIZONTAL INTEREST SECTIONS ── */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 2px solid var(--chain-gray);
+      border-bottom: 2px solid var(--chain-gray);
+      margin: 0 0 0;
+    }
+
+    .interest-section {
+      padding: 2.5rem 2.2rem;
+      border-right: 1px solid var(--chain-gray);
+      position: relative;
+      background: rgba(17,17,17,0.35);
+      transition: background 0.3s;
+    }
+
+    .interest-section:last-child { border-right: none; }
+
+    .interest-section:hover {
+      background: rgba(192,57,43,0.06);
+    }
+
+    .interest-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--fire-orange), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .interest-section:hover::before { opacity: 1; }
+
+    .section-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.7rem;
+      display: block;
+      filter: drop-shadow(0 0 6px var(--fire-orange));
+    }
+
+    .interest-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.1em;
+      color: var(--fire-orange);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 12px rgba(255,106,0,0.4);
+    }
+
+    .interest-section p {
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: #b0a898;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 1.8rem;
+      font-size: 0.8rem;
+      color: var(--chain-gray);
+      border-top: 1px solid #222;
+      letter-spacing: 0.08em;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .footer-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--bone-white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--fire-orange); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      .sections-grid { grid-template-columns: 1fr; }
+      .interest-section { border-right: none; border-bottom: 1px solid var(--chain-gray); }
+      nav { gap: 1.2rem; padding: 0 1.2rem; }
+      .content-wrapper { padding: 2rem 1.4rem; }
+      .hero { padding: 2.5rem 1.4rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="Autobiography.html">Home</a>
+    <a href="Contact.html">Contact</a>
+    <a href="resume.html">Resume</a>
+    <a href="AboutMe.html" class="active">About Me</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-label">Portfolio</div>
+    <h1>About Me</h1>
+    <div class="chain-divider">
+      <span class="skull">💀</span>
+      <span class="line"></span>
+    </div>
+  </header>
+
+  <!-- ABOUT TEXT -->
+  <div class="content-wrapper">
+    <p class="about-text">
+      My name is Damarion Williams and I am a senior in college with a strong foundation in HTML and Python.
+      I have a strong interest in technology and problem-solving. I enjoy coding and developing my technical
+      skills, and outside of that I'm into gaming and working on cars. I'm naturally curious and like
+      understanding systems, whether they're digital or mechanical. Lastly, my about me page is a little
+      personal — if you find interest in seeing my work or projects I can refer you to my
+      <a href="https://github.com/Damarion4k" target="_blank" rel="noopener noreferrer">GitHub</a>.
+    </p>
+  </div>
+
+  <!-- THREE INTEREST SECTIONS -->
+  <div class="sections-grid">
+
+    <div class="interest-section">
+      <span class="section-icon">🎮</span>
+      <h2>Video Games</h2>
+      <p>
+        I love playing video games in my free time. Some of my favorite games include the Spiderman games,
+        Marvel Rivals, Star Wars, Devil May Cry and many more. I enjoy the immersive storytelling and
+        engaging gameplay that video games offer. Lastly, I also enjoy playing games with friends and family
+        as a way to connect and have fun together. Those games include Mario Kart, Mortal Kombat, and games
+        like Fortnite.
+      </p>
+    </div>
+
+    <div class="interest-section">
+      <span class="section-icon">🎬</span>
+      <h2>Movies</h2>
+      <p>
+        I love watching movies in my free time. Some of my favorite genres include action, science fiction,
+        and drama. I enjoy the storytelling and visual effects that movies offer. Some movies can include the
+        Avengers movies, some scary movies like Insidious, and other movies like Glass Onion — a murder mystery
+        I highly recommend.
+      </p>
+    </div>
+
+    <div class="interest-section">
+      <span class="section-icon">🔧</span>
+      <h2>Hobbies</h2>
+      <p>
+        When I'm not debugging code, I'm usually diagnosing a car like it's another programming problem…
+        just with more grease involved. I enjoy figuring out how things work, whether it's a software system
+        or an engine that won't start. And in between both projects, I make sure to spend quality time with
+        my family — because even the best machines need a solid support system.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-links">
+      <a href="https://www.linkedin.com/in/Damarion-Williams" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.354V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/Damarion4k" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:damarionw58@gmail.com">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email
+      </a>
+    </div>
+
+  <footer>
+    &copy; 2026 Damarion Williams &nbsp;·&nbsp; All rights reserved
+  </footer>
+
+</body>
+</html>
